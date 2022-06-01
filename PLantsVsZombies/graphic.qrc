@@ -1,0 +1,41 @@
+<RCC>
+    <qresource prefix="/">
+        <file>graphic/Map/Sunday.jpg</file>
+        <file>graphic/Plants/Peashooter/0.gif</file>
+        <file>graphic/Plants/Peashooter/1.gif</file>
+        <file>graphic/Plants/SunFlower/1.gif</file>
+        <file>graphic/Plants/SunFlower/0.gif</file>
+        <file>graphic/Zombies/Zombie/Attack.gif</file>
+        <file>graphic/Zombies/Zombie/Die.gif</file>
+        <file>graphic/Zombies/Zombie/LostHead.gif</file>
+        <file>graphic/Zombies/Zombie/LostHeadAttack.gif</file>
+        <file>graphic/Zombies/Zombie/Move0.gif</file>
+        <file>graphic/Zombies/Zombie/Move1.gif</file>
+        <file>graphic/Zombies/Zombie/Move2.gif</file>
+        <file>graphic/Zombies/Zombie/Wait0.gif</file>
+        <file>graphic/Zombies/Zombie/Wait1.gif</file>
+        <file>graphic/Zombies/Zombie/Wait2.gif</file>
+        <file>graphic/Zombies/Zombie/Head.gif</file>
+        <file>graphic/Cards/card_cherrybomb.png</file>
+        <file>graphic/Cards/card_chomper.png</file>
+        <file>graphic/Cards/card_hypnoshroom.png</file>
+        <file>graphic/Cards/card_iceshroom.png</file>
+        <file>graphic/Cards/card_jalapeno.png</file>
+        <file>graphic/Cards/card_peashooter.png</file>
+        <file>graphic/Cards/card_potatomine.png</file>
+        <file>graphic/Cards/card_puffshroom.png</file>
+        <file>graphic/Cards/card_repeaterpea.png</file>
+        <file>graphic/Cards/card_scaredyshroom.png</file>
+        <file>graphic/Cards/card_snowpea.png</file>
+        <file>graphic/Cards/card_spikeweed.png</file>
+        <file>graphic/Cards/card_squash.png</file>
+        <file>graphic/Cards/card_sunflower.png</file>
+        <file>graphic/Cards/card_sunshroom.png</file>
+        <file>graphic/Cards/card_threepeashooter.png</file>
+        <file>graphic/Cards/card_wallnut.png</file>
+        <file>graphic/Plants/WallNut/0.gif</file>
+        <file>graphic/Plants/WallNut/1.gif</file>
+        <file>graphic/Plants/WallNut/2.gif</file>
+        <file>graphic/Plants/WallNut/3.gif</file>
+    </qresource>
+</RCC>
