@@ -26,16 +26,7 @@ void BulletManagement::Push(QPoint p, BulletType type)
         return;
     }
 
-    auto BulletCreate = [=]() -> Bullet*
-    {
-        switch (type)
-        {
-        case BulletTypePea: return new Bullet(QString(PEA_PATH), p, PEA_ATTACK, window);
-        default: return new Bullet(QString(PEA_PATH), p, PEA_ATTACK, window);
-        }
-    };
-
-    Bullet *b = BulletCreate();
+    Bullet *b = new Bullet(type, p, window);
     b->Fire();
     bulletVec[p.y()].push_back(b);
 }
@@ -88,7 +79,7 @@ void BulletManagement::Update()
                 int zx = (*z)->Pos().x();
                 if (bx >= zx && bx <= zx+80)
                 {
-                    (*z)->Injury((*b)->attack);
+                    (*z)->Injury((*b)->attack, (*b)->type);
                     (*b)->state = false;
                     break;
     //                qDebug() << "zombie " << zombie->Pos();
@@ -102,21 +93,38 @@ void BulletManagement::Update()
 }
 
 
-Bullet::Bullet(QString model_p, QPoint p, int atk, MainWindow *window)
+Bullet::Bullet(BulletType type, QPoint p, MainWindow *window)
     : pos()
 {
     this->window = window;
+    this->model = new QLabel(window);
+    this->type = type;
+
+    switch (type)
+    {
+        case BulletTypeSnowPea: {
+            this->attack = PEA_ATTACK;
+            this->size = QSize(56, 34);
+            model->setPixmap(QPixmap(PEAICE_PATH));
+            break;
+        }
+        case BulletTypePea:
+        default: {
+            this->attack = PEA_ATTACK;
+            this->size = QSize(37, 34);
+            model->setPixmap(QPixmap(PEA_PATH));
+            break;
+        }
+    }
+
     QPoint pp = window->MapUnitCoord(p);
-    model = new QLabel(window);
     model->setScaledContents(true);
-    model->setPixmap(QPixmap(model_p));
-    model->setGeometry(pp.x()+43, pp.y(), 37, 34);
+    model->setGeometry(pp.x()+43, pp.y(), size.width(), size.height());
     model->setAttribute(Qt::WA_TransparentForMouseEvents);
     model->raise();
     model->show();
 
     this->pos = pp;
-    this->attack = atk;
     this->state = true;
 }
 
@@ -151,7 +159,7 @@ Bullet::~Bullet()
  *
 **************************************************************/
 
-const char *SUN_MODE_PATH = "../graphics/Screen/Sun.gif";
+const char *SUN_MODE_PATH = ":/graphic/Screen/Sun.gif";
 
 Sun::Sun(QPoint p, BulletType type, MainWindow *window)
 {

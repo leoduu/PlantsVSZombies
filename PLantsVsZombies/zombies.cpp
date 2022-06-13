@@ -112,10 +112,12 @@ Zombies::Zombies(int line, MainWindow *window)
 {
     this->window = window;
     this->line = line;
+    this->effect = ZombieEffectNormal;
 
     atkTimer = new Timer(&window->timerMgmt);
     modeTimer = new Timer(&window->timerMgmt);
     bleedTimer = new Timer(&window->timerMgmt);
+    effectTimer = new Timer(&window->timerMgmt);
 
     label = new QLabel(window);
     label->setAttribute(Qt::WA_TransparentForMouseEvents);
@@ -136,6 +138,7 @@ Zombies::~Zombies()
     delete atkTimer;
     delete modeTimer;
     delete bleedTimer;
+    delete effectTimer;
 
     qDebug() << "~Zombie" << ++num;
 }
@@ -161,7 +164,37 @@ void Zombies::Sortie()
     });
 }
 
-void Zombies::Injury(int atk)
+void Zombies::setEffect(ZombieEffect e)
+{
+    switch (e)
+    {
+        case ZombieEffectNormal: {
+            gif->setSpeed(GAME_SPEED);
+            action->SetSpeed(100);
+            atkTimer->setInterval(500);
+
+            QObject::disconnect(effectTimer, &Timer::timeout, this, 0);
+        }
+        case ZombieEffectSnow: {
+            if (this->effect == ZombieEffectNormal)
+            {
+                gif->setSpeed(GAME_SPEED/2);
+                action->SetSpeed(50);
+                atkTimer->setInterval(1000/2);
+                QObject::connect(effectTimer, &Timer::timeout, this, [=](){
+                    QObject::disconnect(effectTimer, &Timer::timeout, this, 0);
+                    setEffect(ZombieEffectNormal);
+                });
+            }
+            // 冻10s
+            effectTimer->Start(10000);
+        }
+    }
+
+    this->effect = e;
+}
+
+void Zombies::Injury(int atk, BulletType)
 {
     hp -= atk;
 }

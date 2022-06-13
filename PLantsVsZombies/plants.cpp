@@ -31,7 +31,7 @@ void PlantManagement::ShoverLoad()
     shover = new PlantsButton(window);
     shover->setFlat(true);
     shover->setStyleSheet("QPushButton{background-color:transparent;}");
-    shover->setIcon(QIcon(QString("../graphics/Screen/shovel.png")));    //设置图表
+    shover->setIcon(QIcon(QString(":/graphic/Screen/shovel.png")));    //设置图表
     shover->setIconSize(QSize(SLOVER_SOLT_WIDTH,SLOVER_SOLT_HEIGHT));
     shover->setGeometry(SLOVER_SOLT_POINTX, SLOVER_SOLT_POINTY, SLOVER_SOLT_WIDTH, SLOVER_SOLT_HEIGHT);     //设置位置，大小
     shover->setMouseTracking(true);
@@ -88,10 +88,11 @@ void PlantManagement::Place(PlantType type)
     {
         switch (type)
         {
-        case PlantTypePeaShooter: return new PeaShooter(window);
-        case PlantTypeSunflower: return new SunFlower(window);
-        case PlantTypeWallNut: return new WallNut(window);
-        default: return new PeaShooter(window);
+            case PlantTypePeaShooter: return new PeaShooter(window);
+            case PlantTypeSunflower: return new SunFlower(window);
+            case PlantTypeWallNut: return new WallNut(window);
+            case PlantTypeSnowPea: return new SnowPeaShooter(window);
+            default: return new PeaShooter(window);
         }
     };
 

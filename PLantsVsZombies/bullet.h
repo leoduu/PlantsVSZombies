@@ -11,9 +11,11 @@
 #include "config.h"
 #include "timer.h"
 
-#define PEA_PATH            "../graphics/Bullets/PeaNormal/PeaNormal_0.png"
+#define PEA_PATH            ":/graphic/Bullets/PeaNormal_0.png"
+#define PEAICE_PATH         ":/graphic/Bullets/PeaIce_0.png"
 #define PEA_ATTACK          20
 #define PEA_SPEED           10
+
 
 class Bullet;
 class Sun;
@@ -43,7 +45,7 @@ class Bullet : public QWidget
     Q_OBJECT
 
 public:
-    Bullet(QString model, QPoint p, int atk, MainWindow *);
+    Bullet(BulletType type, QPoint p, MainWindow *window);
     ~Bullet();
     void Fire();
     QPoint Pos() {return QPoint(pos.x()-55, pos.y());}
@@ -52,11 +54,13 @@ public:
     QLabel *model;
     bool state;
     int attack;
+    BulletType type;
 
 private:
     class MainWindow *window;
     Action *action;
     QPoint pos;
+    QSize size;
 };
 
 

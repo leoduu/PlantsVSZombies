@@ -42,16 +42,17 @@ typedef enum {
     PlantTypePeaShooter = 0,
     PlantTypeSunflower,
     PlantTypeWallNut,
-    PlantTypeCherryBomb,
-    PlantTypeSquash,
-    PlantTypePotatoMine,
     PlantTypeSnowPea,
+    PlantTypePotatoMine,
+    PlantTypeCherryBomb,
     PlantTypeChomper,
+    PlantTypeSquash,
     PlantTypeRepeaterPea,
 } PlantType;
 
 typedef enum {
     BulletTypePea,
+    BulletTypeSnowPea,
     BulletTypeSunScene,
     BulletTypeSunflower,
 } BulletType;

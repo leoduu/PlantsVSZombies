@@ -17,6 +17,11 @@ typedef enum {
     ZombieStateHealthy,
 } ZombieState;
 
+typedef enum {
+    ZombieEffectNormal,
+    ZombieEffectSnow,
+} ZombieEffect;
+
 class MainWindow;
 class Zombies;
 class Action;
@@ -46,8 +51,9 @@ class Zombies : public QWidget
 public:
     explicit Zombies(int line, MainWindow *window=0);
     ~Zombies();
-    virtual void Fight(bool) {};        // 攻击
-    virtual void Injury(int);       // 僵尸被攻击
+    virtual void Fight(bool) {};                // 攻击
+    virtual void Injury(int, BulletType);       // 僵尸被攻击
+    virtual void setEffect(ZombieEffect);         // 状态变更，如冰冻缓速
     virtual int Attack() {return atk;}
     virtual bool isFight() {return fight;}
 
@@ -74,6 +80,8 @@ protected:
     Timer *atkTimer;
     Timer *modeTimer;
     Timer *bleedTimer;
+    Timer *effectTimer;
+    ZombieEffect effect;
     bool fight;
     int line;
     int frameNum;
@@ -91,8 +99,8 @@ class NormalZombie : public Zombies
 public:
     explicit NormalZombie(int line, MainWindow *window=0);
     ~NormalZombie();
-    void Fight(bool) override;           //攻击
-    void Injury(int) override;       //僵尸被攻击
+    void Fight(bool) override;       //攻击
+    void Injury(int, BulletType) override;       //僵尸被攻击
 
 private:
     int type;

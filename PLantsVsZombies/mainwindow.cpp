@@ -51,7 +51,7 @@ void MainWindow::LoadMap()
 
     // 加载上场植物选择糟
     chooser = new QLabel(this);
-    chooser->setPixmap(QPixmap("../graphics/Screen/ChooserBackground.png"));
+    chooser->setPixmap(QPixmap(":/graphic/Screen/ChooserBackground.png"));
     chooser->setGeometry(0, 0, CARD_SOLT_WIDTH, CARD_SOLT_HEIGHT);
     chooser->setMouseTracking(true);
     chooser->hide();
@@ -65,12 +65,12 @@ void MainWindow::LoadMap()
     sunLabel->hide();
     // 加载植物种植选择糟
     QLabel *cardSolt = new QLabel(this);
-    cardSolt->setPixmap(QPixmap("../graphics/Screen/PanelBackground.png"));
+    cardSolt->setPixmap(QPixmap(":/graphic/Screen/PanelBackground.png"));
     cardSolt->setGeometry(0, CARD_SOLT_HEIGHT, CARD_CHOOSE_WIDTH, CARD_CHOOSE_HEIGHT);
     cardSolt->hide();
     // 开始按钮
     QPushButton *startButton = new QPushButton(this);                   // 创建开始战斗按钮
-    startButton->setIcon(QIcon("../graphics/Screen/StartButton.png"));  // 设置图表
+    startButton->setIcon(QIcon(":/graphic/Screen/StartButton.png"));  // 设置图表
     startButton->setIconSize(QSize(154, 37));                           // 设置图片大小
     startButton->setGeometry(157, 547, 154, 37);                        // 设置位置，大小
     startButton->hide();
@@ -135,7 +135,7 @@ void MainWindow::StartFighting()         //开始战斗
 
     // 加载铲子槽
     shoverSlot = new QLabel(this);
-    shoverSlot->setPixmap(QPixmap("../graphics/Screen/shovelSlot.png"));
+    shoverSlot->setPixmap(QPixmap(":/graphic/Screen/shovelSlot.png"));
     shoverSlot->setGeometry(522, 0, 84, 87);
     shoverSlot->show();
     plantMgmt.ShoverLoad();
@@ -196,7 +196,7 @@ void MainWindow::ZombieGeneration()
 {
     static int num = 0;
 
-    if (0)
+    if (1)
     {
         QObject::connect(this, &MainWindow::leftPress, this, [=](){
             QPoint p = mousePostion;

@@ -80,9 +80,14 @@ void NormalZombie::Fight(bool b)
 
 }
 
-void NormalZombie::Injury(int atk)
+void NormalZombie::Injury(int atk, BulletType type)
 {
     this->hp -= atk;
+
+    switch (type) {
+        case BulletTypeSnowPea: setEffect(ZombieEffectSnow); break;
+        default: break;
+    }
 
 //    qDebug() << "injury"<<hp <<atk <<state;
 
@@ -116,7 +121,7 @@ void NormalZombie::Injury(int atk)
         // 掉头流血
         bleedTimer->Start(500);
         QObject::connect(bleedTimer, &Timer::timeout, this, [=](){
-            this->Injury(30);
+            this->Injury(30, BulletTypePea);
         });
     }
 
@@ -133,7 +138,7 @@ void NormalZombie::Injury(int atk)
         Timer *t = new Timer(&window->timerMgmt);
         t->Start(1300); // 倒地
         QObject::connect(t, &Timer::timeout, this, [=](){
-            qDebug()<<"disappear";
+//            qDebug()<<"disappear";
             state = ZombieStateDisappear;
             label->hide();
             modeTimer->Stop();

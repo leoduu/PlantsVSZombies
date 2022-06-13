@@ -37,5 +37,16 @@
         <file>graphic/Plants/WallNut/1.gif</file>
         <file>graphic/Plants/WallNut/2.gif</file>
         <file>graphic/Plants/WallNut/3.gif</file>
+        <file>graphic/Screen/ChooserBackground.png</file>
+        <file>graphic/Screen/PanelBackground.png</file>
+        <file>graphic/Screen/shovel.png</file>
+        <file>graphic/Screen/shovelSlot.png</file>
+        <file>graphic/Screen/StartButton.png</file>
+        <file>graphic/Bullets/PeaNormal_0.png</file>
+        <file>graphic/Bullets/PeaNormalExplode_0.png</file>
+        <file>graphic/Screen/Sun.gif</file>
+        <file>graphic/Plants/SnowPea/0.gif</file>
+        <file>graphic/Plants/SnowPea/1.gif</file>
+        <file>graphic/Bullets/PeaIce_0.png</file>
     </qresource>
 </RCC>

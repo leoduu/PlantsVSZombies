@@ -42,31 +42,31 @@ void CardManagement::LoadCard()
     path[PlantTypePeaShooter]   = QString("%1card_peashooter.png").arg(PATH);       //豌豆射手
     path[PlantTypeSunflower]    = QString("%1card_sunflower.png").arg(PATH);        //向日葵
     path[PlantTypeWallNut]      = QString("%1card_wallnut.png").arg(PATH);          //坚果墙
-    path[PlantTypeCherryBomb]   = QString("%1card_cherrybomb.png").arg(PATH);       //樱桃炸弹
-    path[PlantTypeSquash]       = QString("%1card_squash.png").arg(PATH);           //倭瓜
-    path[PlantTypePotatoMine]   = QString("%1card_potatomine.png").arg(PATH);       //土豆地雷
     path[PlantTypeSnowPea]      = QString("%1card_snowpea.png").arg(PATH);          //冰豌豆射手
+    path[PlantTypePotatoMine]   = QString("%1card_potatomine.png").arg(PATH);       //土豆地雷
+    path[PlantTypeCherryBomb]   = QString("%1card_cherrybomb.png").arg(PATH);       //樱桃炸弹
     path[PlantTypeChomper]      = QString("%1card_chomper.png").arg(PATH);          //食人花
+    path[PlantTypeSquash]       = QString("%1card_squash.png").arg(PATH);           //倭瓜
     path[PlantTypeRepeaterPea]  = QString("%1card_repeaterpea.png").arg(PATH);      //豌豆爸爸
 
     cooldown[PlantTypePeaShooter]    = CooldownFast;
     cooldown[PlantTypeSunflower]     = CooldownFast;
     cooldown[PlantTypeWallNut]       = CooldownMiddle;
-    cooldown[PlantTypeCherryBomb]    = CooldownFast;
-    cooldown[PlantTypeSquash]        = CooldownFast;
-    cooldown[PlantTypePotatoMine]    = CooldownFast;
     cooldown[PlantTypeSnowPea]       = CooldownFast;
+    cooldown[PlantTypePotatoMine]    = CooldownFast;
+    cooldown[PlantTypeCherryBomb]    = CooldownFast;
     cooldown[PlantTypeChomper]       = CooldownFast;
+    cooldown[PlantTypeSquash]        = CooldownFast;
     cooldown[PlantTypeRepeaterPea]   = CooldownFast;
 
     cost[PlantTypePeaShooter]   = PeaShooterCost;
     cost[PlantTypeSunflower]    = SunFlowerCost;
     cost[PlantTypeWallNut]      = WallNutCost;
-    cost[PlantTypeCherryBomb]   = 0;
-    cost[PlantTypeSquash]       = 0;
-    cost[PlantTypePotatoMine]   = 0;
     cost[PlantTypeSnowPea]      = 0;
+    cost[PlantTypePotatoMine]   = 0;
+    cost[PlantTypeCherryBomb]   = 0;
     cost[PlantTypeChomper]      = 0;
+    cost[PlantTypeSquash]       = 0;
     cost[PlantTypeRepeaterPea]  = 0;
 
     // 创建模型，放到指定位置

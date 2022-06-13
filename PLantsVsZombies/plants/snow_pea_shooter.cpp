@@ -4,7 +4,7 @@
 #include "plants.h"
 #include "mainwindow.h"
 
-const BulletType BULLET = BulletTypePea;
+const BulletType BULLET = BulletTypeSnowPea;
 const int HP            = 300;
 const int SPEED         = 1400;
 const int RANGE         = 1;
@@ -12,25 +12,25 @@ const int RANGE         = 1;
 const int MODE_SIZEX    = 71;
 const int MODE_SIZEY    = 71;
 
-QString PeaShooter::StaticModePath()
+QString SnowPeaShooter::StaticModePath()
 {
-    return QString(":/graphic/Plants/Peashooter/0.gif");
+    return QString(":/graphic/Plants/SnowPea/0.gif");
 }
-QString PeaShooter::DynamicModePath()
+QString SnowPeaShooter::DynamicModePath()
 {
-    return QString(":/graphic/Plants/Peashooter/1.gif");
+    return QString(":/graphic/Plants/SnowPea/1.gif");
 }
 
-PeaShooter::PeaShooter(MainWindow *window)
+SnowPeaShooter::SnowPeaShooter(MainWindow *window)
     : Plants(window)
 {
     fightState = false;
-    type = PlantTypePeaShooter;
+    type = PlantTypeSnowPea;
     plantInit(HP, BULLET, SPEED, RANGE);
 
     // 加载模型
     modeSize = QSize(MODE_SIZEX, MODE_SIZEY);
-    gif->setFileName(QString(PeaShooter::DynamicModePath()));
+    gif->setFileName(QString(SnowPeaShooter::DynamicModePath()));
     model->hide();
     model->setScaledContents(true);
     model->setMouseTracking(true);
@@ -45,13 +45,13 @@ PeaShooter::PeaShooter(MainWindow *window)
     place();
 }
 
-void PeaShooter::Fire()        //植物攻击
+void SnowPeaShooter::Fire()        //植物攻击
 {
     window->bulletMgmt.Push(pos, BULLET);
 }
 
 
-PeaShooter::~PeaShooter()
+SnowPeaShooter::~SnowPeaShooter()
 {
 
 }

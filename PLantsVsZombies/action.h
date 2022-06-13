@@ -44,8 +44,9 @@ public:
     ~Action();
 
     void Stop();                            // 暂停
-    void Resume();
+    void Resume();                          // 恢复
     void Finish();
+    void SetSpeed(int);                        // 改变速度
     void Move(int x, int y, int ms);        // 控件移动
     void MoveTo(int x, int y, int ms);      // 控件移动到坐标
     void FollowMouse();                     // 控件跟随鼠标
@@ -74,8 +75,10 @@ private:
     float preX;         // 一次移动X轴距离
     float preY;         // 一次移动Y轴距离
     float preO;         // 一次特效
-    int totalNum;        // 移动次数
-    int currNum;        // 当前移动次数
+    float currNum;      // 当前移动次数
+    int totalNum;       // 移动次数
+    int speed;          // 倍速
+    bool state;
 };
 
 #endif // ACTION_H

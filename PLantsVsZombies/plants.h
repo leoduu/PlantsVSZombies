@@ -162,7 +162,6 @@ public:
 public slots:
     void Fire() override;                   // 攻击
 
-
 private:
 
 };
@@ -205,6 +204,25 @@ public:
     void Injure(int) override;       // 受伤
 };
 
+/*********************************
+             冰豌豆射手
+
+*********************************/
+class SnowPeaShooter : public Plants
+{
+    Q_OBJECT
+
+public:
+    explicit SnowPeaShooter(MainWindow *window=0);
+    ~SnowPeaShooter();
+    QString StaticModePath() override;
+    QString DynamicModePath() override;
+
+public slots:
+    void Fire() override;                   // 攻击
+private:
+
+};
 
 ///*********************************
 //             樱桃炸弹
@@ -263,25 +281,7 @@ public:
 //protected:
 //};
 
-///*********************************
-//             冰豌豆射手
 
-//*********************************/
-//class SnowPea : public Plants
-//{
-//    Q_OBJECT
-
-//public:
-//    explicit SnowPea(MainWindow *parent = nullptr);
-//    ~SnowPea();
-//    virtual void fight();       //攻击模式
-//    virtual void injured();     //受伤
-//    virtual void aFgiht();      //一次攻击
-
-//private:
-
-//protected:
-//};
 
 ///*********************************
 //             食人花

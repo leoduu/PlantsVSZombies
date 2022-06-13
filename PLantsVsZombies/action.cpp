@@ -49,17 +49,25 @@ Action::~Action()
 
 void Action::Stop()
 {
+    this->state = false;
     emit finish();
 }
 
 void Action::Resume()
 {
+    this->state = true;
     emit start();
 }
 
 void Action::Finish()
 {
+    this->state = false;
     emit finish();
+}
+
+void Action::SetSpeed(int speed)
+{
+    this->speed = speed;
 }
 
 void Action::update()
@@ -87,10 +95,11 @@ void Action::update()
     }
     else
     {
-        ++currNum;
+        currNum += 1.0 * speed / 100;
+
         widget->move( (int)(startX+preX*currNum), (int)(startY+ preY*currNum));
 
-        if (currNum == totalNum) {       //移动完成
+        if (currNum >= totalNum) {       //移动完成
             widget->move(endX, endY);   //修正误差
             Finish();
         }
@@ -147,12 +156,15 @@ void Action::MoveInital(int x, int y, int ms)
     this->currNum = 0;                                  // 当前移动此次数
     this->preX = (float)(endX - startX) / totalNum;     // 单次移动X轴
     this->preY = (float)(endY - startY) / totalNum;     // 单次移动Y轴
+    this->speed = 100;
+    if (this->state) emit finish();
+    this->state = true;
     emit start();
 
 //    qDebug()<<"param: start("<<startX<<','<<startY<<") "
 //            <<"end("<<endX<<','<<endY<<") "
 //            <<"pre("<<preX<<','<<preY<<") "
-//            <<"timer("<<time<<") ";
+//            <<"timer("<<ms<<") ";
 }
 
 

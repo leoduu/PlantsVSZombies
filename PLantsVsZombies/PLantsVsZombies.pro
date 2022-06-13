@@ -31,6 +31,7 @@ SOURCES += \
     mainwindow.cpp \
     plants.cpp \
     plants/pea_shooter.cpp \
+    plants/snow_pea_shooter.cpp \
     plants/sunflower.cpp \
     plants/wall_nut.cpp \
     timer.cpp \
